@@ -1,0 +1,11 @@
+#+title: Everything Rust
+#+author: Atri Hegde <iamatrihegde@outlook.com>
+#+description:
+
+After learning rust using my classic rust-bible approach, I realised that I needed some personal references that I can come to and re-read as I am not using rust on a daily basis, but as my hobby language.
+
+I will be creating interactive Org-mode documents with all the important sections (I'll include the basics so it can help some beginners as well :D)
+
+You will be using it to the fullest effect if you open this project in Emacs and execute the source blocks so you can see the output. It makes tinkering with the code insanely simple, you just need rust installed (preferably through rustup).
+
+The links below work in Emacs, and probably won't work if you are accessing this from your browser.
