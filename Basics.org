@@ -1,2 +1,107 @@
 #+title: Basics
 #+author: Atri Hegde <iamatrihegde@outlook.com>
+
+* Table of Contents :TOC:
+- [[#create-a-new-project][Create a new project]]
+- [[#printing][Printing]]
+- [[#declaring-variables][Declaring variables]]
+  - [[#mutability][Mutability]]
+- [[#taking-in-input][Taking in input]]
+- [[#generating-random-number][Generating random number]]
+  - [[#a-newer-way][A newer way]]
+
+* Create a new project
+
+You can create a new project using the ~cargo~ cli tool.
+
+#+begin_src sh
+cargo new --bin hello-world
+#+end_src
+
+* Printing
+
+Printing some text.
+
+#+begin_src rust
+println!("Hello world!");
+#+end_src
+
+#+RESULTS:
+: Hello world!
+
+
+Printing with variable.
+
+#+begin_src rust
+let place = "world";
+println!("Hello {}!", place);
+#+end_src
+
+#+RESULTS:
+: Hello world!
+
+* Declaring variables
+
+You can declare variables using the ~let~ keyword.
+
+#+begin_src rust
+let x = 10;
+let (a, b) = (1, 2);
+let c: i32 = 3;
+#+end_src
+
+** Mutability
+
+To make variable mutable, use the ~mut~ keyword.
+
+#+begin_src rust
+let mut x = 1;
+x = 2;
+#+end_src
+
+* Taking in input
+
+Create a variable we can put the input into.
+
+#+begin_quote
+This block cannot be executed in Emacs as it require input.
+#+end_quote
+
+#+begin_src rust
+let mut guess = String::new();
+std::io::stdin().read_line(&mut guess).expect("Failed to read line");
+println!("{}", guess);
+#+end_src
+
+* Generating random number
+
+We need to use an external package for this. It is called ~crates~ in rust, and we are going to install the ~rand~ crate.
+
+First edit the =Cargo.toml= file and add this under dependencies.
+
+#+begin_src toml
+[dependencies]
+rand = "0.3.0"
+#+end_src
+
+** A newer way
+
+Now you can use the cargo cli to add dependencies to your projects quickly from the terminal.
+
+#+begin_src shell
+cargo add rand
+# Optionally specify the version and features
+# cargo add rand@0.3.0 -F <valid-feature>
+#+end_src
+
+
+Now in main.rs (again it won't run here cause dependencies are not installed.)
+
+#+begin_src rust
+extern crate rand;
+use rand::Rng;
+
+fn main() {
+    let rand_num = rand::thread_rng().gen_range(1, 101);
+}
+#+end_src
