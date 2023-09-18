@@ -6,6 +6,8 @@
 - [[#printing][Printing]]
 - [[#declaring-variables][Declaring variables]]
   - [[#mutability][Mutability]]
+  - [[#const][const]]
+  - [[#static][static]]
 - [[#taking-in-input][Taking in input]]
 - [[#generating-random-number][Generating random number]]
   - [[#a-newer-way][A newer way]]
@@ -57,6 +59,24 @@ To make variable mutable, use the ~mut~ keyword.
 #+begin_src rust
 let mut x = 1;
 x = 2;
+#+end_src
+
+** const
+
+Constants are evaluated at compile time and their names often are all caps.
+
+#+begin_src rust
+const SPACES: usize = 2;
+println!("{SPACES}");
+#+end_src
+
+** static
+
+Statics will live for the whole execution of the program.
+
+#+begin_src rust
+static BANNER: &str = "Should I write an operating system in Rust?";
+println!("{BANNER}");
 #+end_src
 
 * Taking in input
